@@ -1,0 +1,598 @@
+[
+  {
+    "Error_Code": "ER001",
+    "Tittle": "Gun Temperature Limit",
+    "Description": "The gun temperature exceeded the 90°C threshold",
+    "Solution": [
+      "Remove the gun from the vehicle and physical heating on both ends.",
+      "If physical heating is available, please verify the gun's condition and connection tightness.",
+      "This error happens due to a GUN overheating issue, therefore take the necessary precautions."
+    ]
+  },
+  {
+    "Error_Code": "ER005",
+    "Tittle": "High NE Voltage",
+    "Description": "Neutral to earth voltage exceeds limit",
+    "Solution": [
+      "In ideal conditions, the NE voltage should be less than one (<1); otherwise, make necessary adjustments.",
+      "If the earthing is appropriate, check the phase to neutral and phase to phase voltages; this is caused by an overvoltage in the neutral."
+    ]
+  },
+  {
+    "Error_Code": "ER006",
+    "Tittle": "Mains Low",
+    "Description": "AC mains with voltages less than the 159-threshold limit",
+    "Solution": [
+      "Check all phase-to-phase and phase-to-neutral voltages if any phase is receiving less voltage as a result of an ER006 fault occurring."
+    ]
+  },
+  {
+    "Error_Code": "ER007",
+    "Tittle": "Mains High",
+    "Description": "AC mains with voltage thresholds above 280",
+    "Solution": [
+      "Check all phase-to-phase and phase-to-neutral voltages if a specific phase has less voltage owing to an ER007 fault."
+    ]
+  },
+  {
+    "Error_Code": "ER008",
+    "Tittle": "RFID Communication Fail",
+    "Description": "RFID module is unable to communicate with the controller over the RS-485 interface",
+    "Solution": [
+      "Check the 12V supply voltage to the RFID module.",
+      "Check that the RS-485 connection connects with the master controller properly.",
+      "If both of the above are satisfactory, please test the same RFID module with a different controller. If the problem remains, it's possible that the RFID module failed."
+    ]
+  },
+  {
+    "Error_Code": "ER009",
+    "Tittle": "AC Energy Meter Communication Failure",
+    "Description": "The energy meter is unable to communicate with the controller over the RS-485 interface",
+    "Solution": [
+      "Check the proper supply voltage to the AC meter.",
+      "Check the RS-485 cable communicates correctly with the controller.",
+      "Check the AC energy meter is properly configured using the CDM application.",
+      "Check the set configuration. Is it mandatory to use an AC meter for CDM applications?",
+      "Check if the AC meter's settings, such as Slave ID, Parity, and Baud rate, are appropriate."
+    ]
+  },
+  {
+    "Error_Code": "ER010",
+    "Tittle": "High Leakage Current",
+    "Description": "Leakage current exceeds 30 mA",
+    "Solution": [
+      "Check the cable condition. This leakage current error occurs when the cable is loose or severed."
+    ]
+  },
+  {
+    "Error_Code": "ER011",
+    "Tittle": "System Temperature High",
+    "Description": "The cabinet temperature is out of range",
+    "Solution": [
+      "Check that the filter is thoroughly cleaned; if it is not, the internal cooling will not function correctly, and the cabinet temperature will increase.",
+      "Check that the cooling fan is functioning properly.",
+      "If the charger is placed in an open area, please monitor PM activity once a week or twice a month.",
+      "Take measures to assist keep the interior cabinet temperature normal in the summer and while charging."
+    ]
+  },
+  {
+    "Error_Code": "ER012",
+    "Tittle": "SPD Fault",
+    "Description": "SPD malfunctions occur",
+    "Solution": [
+      "If you do not utilise SPD, put a jumper in the LED module's SPD connection position, or use the CDM utility to disable SPD.",
+      "If you utilise SPD, please ensure that the SPD communication is Solution  properly connected with the LED module.",
+      "If properly connected, verify the SPD condition to determine if an SPD fault has occurred on the SPD hardware or if it is in normal"
+    ]
+  },
+  {
+    "Error_Code": "ER013",
+    "Tittle": "PLC Communication Failure",
+    "Description": "PLC Modules' CAN communication is disrupted",
+    "Solution": [
+      "Check the 12 V power supply in the PLC.",
+      "Check that the CAN cable is properly connected to the master controller.",
+      "Check that CAN L is connected to CAN L, and CAN H is connected to CAN H.",
+      "All of the above conditions are appropriate; however, please replace the PLC and check for CAN communication port damage in the PLC."
+    ]
+  },
+  {
+    "Error_Code": "ER014",
+    "Tittle": "Controller Dashboard Failure",
+    "Description": "Software error: controller is unable to communicate with all peripherals",
+    "Solution": [
+      "Check the 12V supply voltage on the controller input.",
+      "Reset the charger and check.",
+      "Reinstall the software and verify it."
+    ]
+  },
+  {
+    "Error_Code": "ER015",
+    "Tittle": "OCPP Communication Failure",
+    "Description": "The system is offline or unable to connect to the server",
+    "Solution": [
+      "Check that the GSM, Wi-Fi, and Ethernet internet connections are working properly.",
+      "If the network is working well, please review the commissioning procedure and ensure that the server URL and charger ID are correct.",
+      "If everything is well, please grab the OCPP logs and share them with the Ecoplug support staff so that they can analyse the root cause."
+    ]
+  },
+  {
+    "Error_Code": "ER016",
+    "Tittle": "Smoke Detect",
+    "Description": "The smoke sensor detected a fire inside the cabinet",
+    "Solution": [
+      "If you do not utilise the smoke sensor, put a jumper in the LED module's Smoke Sensor connection position, or use the CDM utility  to turn off the issue.",
+      "If you utilise a smoke sensor, please ensure that it is correctly connected with the LED module."
+    ]
+  },
+  {
+    "Error_Code": "ER017",
+    "Tittle": "RCCB Trip / MCB Trip",
+    "Description": "RCCB trip because of over-leakage or excessive NE, or MCB trip due to short circuit and overload",
+    "Solution": [
+      "Check the RCCB / MCB carrying capacity of your system.",
+      "Check the connection tightness on the MCB and RCCB by taking  out the connecting cables.",
+      "If everything is satisfactory, the MCB tripping reason is overload and a faulty state; please check so that it can be resolved."
+    ]
+  },
+  {
+    "Error_Code": "ER018",
+    "Tittle": "ESD Pressed",
+    "Description": "Emergency switch is pressed",
+    "Solution": [
+      "Check if the Emergency button is pressed or not; if it is, release it to get rid of the error.",
+      "If the fault remains after release, check the emergency connection with the master controller to ensure it is properly connected.",
+      "If it is properly connected to it, replace the emergency button and check."
+    ]
+  },
+  {
+    "Error_Code": "ER019",
+    "Tittle": "All Rectifier Communication Fail",
+    "Description": "CAN communication is lost between the controller and the rectifier",
+    "Solution": [
+      "Check the CAN communication connection to the master controller.",
+      "Check that Rectifier ID and group selection are appropriate.",
+      "Check the rectifier selection from the CDM utility to identify if it is appropriately selected."
+    ]
+  },
+  {
+    "Error_Code": "ER020",
+    "Tittle": "Isolation Fault",
+    "Description": "Insulation failure",
+    "Solution": [
+      "Check if the IMD module is operational and properly connected.",
+      "If everything is satisfactory, then the real insulation in the charger may have been eliminated, which must be rectified and resolved appropriately."
+    ]
+  },
+  {
+    "Error_Code": "ER021",
+    "Tittle": "LED Board Fault",
+    "Description": "The LED controller does not communicate with the controller",
+    "Solution": [
+      "Check the LED board's supply voltage.",
+      "Check the connection between the LED board and the master Solution  controller: does it communicate properly?",
+      "Change the LED board and check if it is possible. The LED board itself is damaged."
+    ]
+  },
+  {
+    "Error_Code": "ER023",
+    "Tittle": "Rectifier 1 Communication Fail",
+    "Description": "Rectifier 1 communication fails with the controller",
+    "Solution": [
+      "Check your system capacity using the CDM utility.",
+      "Check if the rectifier ID and group selection are correct.",
+      "Check the CAN communication connection; is it appropriate or has it broken somewhere?",
+      "Change the rectifier and see whether this is possible; the rectifier itself has been damaged."
+    ]
+  },
+  {
+    "Error_Code": "ER024",
+    "Tittle": "Rectifier 2 Communication Fail",
+    "Description": "Rectifier 2 communication fails with the controller",
+    "Solution": [
+      "Check your system capacity using the CDM utility.",
+      "Check if the rectifier ID and group selection are correct.",
+      "Check the CAN communication connection; is it appropriate or has it broken somewhere?",
+      "Change the rectifier and see whether this is possible; the rectifier itself has been damaged."
+    ]
+  },
+  {
+    "Error_Code": "ER025",
+    "Tittle": "Rectifier 3 Communication Fail",
+    "Description": "Rectifier 3 communication fails with the controller",
+    "Solution": [
+      "Check your system capacity using the CDM utility.",
+      "Check if the rectifier ID and group selection are correct.",
+      "Check the CAN communication connection; is it appropriate or has it broken somewhere?",
+      "Change the rectifier and see whether this is possible; the rectifier itself has been damaged."
+    ]
+  },
+  {
+    "Error_Code": "ER026",
+    "Tittle": "Rectifier 4 Communication Fail",
+    "Description": "Rectifier 3 communication fails with the controller",
+    "Solution": [
+      "Check your system capacity using the CDM utility.",
+      "Check if the rectifier ID and group selection are correct.",
+      "Check the CAN communication connection; is it appropriate or has it broken somewhere?",
+      "Change the rectifier and see whether this is possible; the rectifier itself has been damaged."
+    ]
+  },
+  {
+    "Error_Code": "ER027",
+    "Tittle": "DC Over Voltage",
+    "Description": "Rectifier DC output voltage exceeds EV maximum voltage",
+    "Solution": [
+      "The error occurs when the rectifier output voltage exceeds the EV demand voltage."
+    ]
+  },
+  {
+    "Error_Code": "ER028",
+    "Tittle": "DC Under Voltage",
+    "Description": "Rectifier DC output is undervoltage",
+    "Solution": [
+      "The error occurs when the rectifier output voltage is lower than that required for an electric vehicle."
+    ]
+  },
+  {
+    "Error_Code": "ER029",
+    "Tittle": "DC Output Over Current",
+    "Description": "Rectifier DC Output current exceeds EV maximum current",
+    "Solution": [
+      "The error occurs when the rectifier output current exceeds the EV demand current."
+    ]
+  },
+  {
+    "Error_Code": "ER030",
+    "Tittle": "HMI Communication Fail",
+    "Description": "HMI cannot communicate with the main controller",
+    "Solution": [
+      "Check the power supply of the HMI.",
+      "Check that RS485 communication is properly connected with the master controller."
+    ]
+  },
+  {
+    "Error_Code": "ER031",
+    "Tittle": "Modem Communication Fail",
+    "Description": "Modem communication failure with the OCPP module",
+    "Solution": [
+      "Check that the GSM modem in the controller is properly connected.",
+      "If everything is satisfactory, please review the OCPP logs and then replace and test the modem."
+    ]
+  },
+  {
+    "Error_Code": "ER032",
+    "Tittle": "System Unit Fail",
+    "Description": "Controller is unable to initialise hardware peripherals",
+    "Solution": []
+  },
+  {
+    "Error_Code": "ER033",
+    "Tittle": "Relay Board Fail",
+    "Description": "Relay Board is not communicating with the Controller",
+    "Solution": [
+      "Check the relay board's power supply.",
+      "Please check all relay board connections with the master controller.",
+      "Replace the relay board and check."
+    ]
+  },
+  {
+    "Error_Code": "ER034",
+    "Tittle": "DC Meter Communication Fail",
+    "Description": "DC Meter is unable to communicate with the controller over the RS-485 interface",
+    "Solution": [
+      "Check the supply voltage of DC meter.",
+      "Check the RS485 cable communicates properly with the controller.",
+      "Check the configuration of the DC energy meter using the CDM utility.",
+      "Check if the DC meter is mandatory or not using the CDM utility.",
+      "Check that the DC meter configuration, such as slave ID, parity, and baud rate, are appropriate."
+    ]
+  },
+  {
+    "Error_Code": "ER035",
+    "Tittle": "All PLC Communication Fail",
+    "Description": "Both PLC modules are unable to communicate with the controller using CAN bus",
+    "Solution": [
+      "Check the 12 V power supply in the PLC.",
+      "Check that the CAN cable is properly connected to the master controller.",
+      "Check that CAN L is connected to CAN L, and CAN H is connected to CAN H.",
+      "All of the above conditions are appropriate; however, please replace the PLC and check for CAN communication port damage in the PLC."
+    ]
+  },
+  {
+    "Error_Code": "ER036",
+    "Tittle": "Tamper Detect",
+    "Description": "Tamper or door sensor detection event",
+    "Solution": [
+      "If you do not utilise the tamper or door sensor, put a jumper in the LED module's Tamper/Door Sensor connection position, or you can turn off the problem using the CDM utility.",
+      "If you utilise a tamper or door sensor, make sure the sensor communication is properly connected to the LED module."
+    ]
+  },
+  {
+    "Error_Code": "ER037",
+    "Tittle": "Input Contactor Fail",
+    "Description": "AC Contactor Failure",
+    "Solution": [
+      "Check the AC communication between the contactor, relay, and control card.",
+      "Replace the AC contactor and check."
+    ]
+  },
+  {
+    "Error_Code": "ER038",
+    "Tittle": "Rectifier Temperature High",
+    "Description": "Rectifier temperature exceeds the 70°C threshold limit",
+    "Solution": [
+      "Check the cabinet temperature.",
+      "Check whether the cabinet cooling and exhaust systems are working properly.",
+      "Check the DC Bus Bar capacity fulfils the system capacity requirements.",
+      "Wait a few moments for the rectifier temperature to return to normal, and then check again."
+    ]
+  },
+  {
+    "Error_Code": "ER039",
+    "Tittle": "Gun DC Contactor Fail",
+    "Description": "DC contactor failure",
+    "Solution": [
+      "Operate the DC contactor manually from the tera term and verify that it is operational; if not, replace the DC contactor."
+    ]
+  },
+  {
+    "Error_Code": "ER040",
+    "Tittle": "Gun Fuse Damage",
+    "Description": "Fuse damage failure",
+    "Solution": [
+      "Check fuse continuity. If the fuse is damaged, replace it."
+    ]
+  },
+  {
+    "Error_Code": "ER041",
+    "Tittle": "Gun Auth Timeout",
+    "Description": "Authentication failure",
+    "Solution": [
+      "The Gun does not connect. Please reconnect properly and check.",
+      "The gun attaches, but the charging start command is not delivered for quite some time. In this instance, remove the gun, reconnect it, and check.",
+      "Because of the CMS issue, the charger does not get any authentication to begin charging, resulting in this error."
+    ]
+  },
+  {
+    "Error_Code": "ER042",
+    "Tittle": "Gun CP Line Fault",
+    "Description": "PLC module determined a CP line problem",
+    "Solution": [
+      "Check DC voltage between CP and PE in PLC in optimum conditions. It should be 12V. When the gun is plugged in, the voltage between the CP and the PE is 9V, and when charging, it is 5.5 to 6.5V.",
+      "If everything is satisfactory, please verify the CP continuity from the top to bottom of the gun.",
+      "If everything is satisfactory, replace the PLC and check it."
+    ]
+  },
+  {
+    "Error_Code": "ER043",
+    "Tittle": "Gun SLAC Fault",
+    "Description": "PLC module determined SLAC failure",
+    "Solution": [
+      "SLAC can be formed as a result of the high notice detected in the CP and PE lines from the earth.",
+      "Sometimes SLAC is detected from the car side owing to a high earth alert, therefore exchange the EV and test again.",
+      "Change the PLC and check whether the previous two methods resolve the issue.",
+      "If the problem remains even after changing the PLC, contact the Ecoplug technical team."
+    ]
+  },
+  {
+    "Error_Code": "ER044",
+    "Tittle": "Gun V2G Fault",
+    "Description": "PLC module determined a Vehicle 2 Grid failure",
+    "Solution": []
+  },
+  {
+    "Error_Code": "ER045",
+    "Tittle": "Gun Pre-charge Error",
+    "Description": "Pre-charging stage failure",
+    "Solution": [
+      "If no pre-charge voltage is generated during the pre-charge mode.",
+      "Check to determine whether the power module turns on when charging after authentication.",
+      "Replace the PLC and check it.",
+      "If the problem remains despite replacing the PLC, contact the technical team."
+    ]
+  },
+  {
+    "Error_Code": "ER046",
+    "Tittle": "EV Error",
+    "Description": "Electric vehicles cause failure",
+    "Solution": [
+      "This problem occurs on the EV side. However, check the EV or replace the EV and try again."
+    ]
+  },
+  {
+    "Error_Code": "ER047",
+    "Tittle": "All DC meter comm. fail",
+    "Description": "Both DC meters are unable to connect with the controller over the RS-485 interface",
+    "Solution": [
+      "Check the proper supply voltage.",
+      "Check the RS485 cable communicates properly with the controller.",
+      "Check the configuration of your DC energy meter using the CDM utility.",
+      "Using the CDM utility, determine whether a DC meter is required.",
+      "Check the DC meter settings, such as slave ID, parity, and baud rate, are appropriate.",
+      "If everything is satisfactory, replace the controller and check it."
+    ]
+  },
+  {
+    "Error_Code": "ER048",
+    "Tittle": "AC TYPE-2 Energy Meter Failure",
+    "Description": "The AC energy meter is unable to communicate with the Controller",
+    "Solution": [
+      "Check the proper supply voltage.",
+      "Check the RS485 cable communicates properly with the controller.",
+      "Check the configuration of your AC energy meter using the CDM utility.",
+      "Using the CDM utility, determine whether an AC meter is required.",
+      "Check the AC meter settings, such as slave ID, parity, and baud rate, are appropriate."
+    ]
+  },
+  {
+    "Error_Code": "ER049",
+    "Tittle": "AC TYPE-2 Over Voltage",
+    "Description": "AC output voltage exceeds EV maximum voltage",
+    "Solution": [
+      "When output voltage exceeds vehicle demand voltage."
+    ]
+  },
+  {
+    "Error_Code": "ER050",
+    "Tittle": "AC TYPE-2 Under Voltage",
+    "Description": "AC output undervoltage error",
+    "Solution": [
+      "When output voltage is lower than vehicle demand voltage."
+    ]
+  },
+  {
+    "Error_Code": "ER051",
+    "Tittle": "AC TYPE-2 Over Current",
+    "Description": "AC output current exceeds EV maximum current",
+    "Solution": [
+      "When the output current exceeds the vehicle demand current."
+    ]
+  },
+  {
+    "Error_Code": "ER052",
+    "Tittle": "AC TYPE-2 Under Current",
+    "Description": "AC output undercurrent error",
+    "Solution": [
+      "When output current is lower than vehicle demand current."
+    ]
+  },
+  {
+    "Error_Code": "ER053",
+    "Tittle": "AC Mains Failure",
+    "Description": "Mains failure",
+    "Solution": [
+      "When any phase voltage is not within the standard, a mains failure occurs.",
+      "Please check the Phase to Neutral voltage."
+    ]
+  },
+  {
+    "Error_Code": "ER054",
+    "Tittle": "Rectifier 1 Failure",
+    "Description": "Rectifier 1 Failure",
+    "Solution": [
+      "Some faults have occurred in rectifier 1. Please check the power module display."
+    ]
+  },
+  {
+    "Error_Code": "ER054",
+    "Tittle": "Rectifier 2 Failure",
+    "Description": "Rectifier 2 Failure",
+    "Solution": [
+      "Some faults have occurred in rectifier 2. Please check the power module display."
+    ]
+  },
+  {
+    "Error_Code": "301",
+    "Tittle": "Normal Stop (Local)",
+    "Description": "Charger stopped with RFID or from display OTP tag",
+    "Solution": [
+      "Charging stops normally when the vehicle is 100% charged.",
+      "Charging stop from Display OTP tag."
+    ]
+  },
+  {
+    "Error_Code": "302",
+    "Tittle": "Server Stop (Remote)",
+    "Description": "Server Stopped",
+    "Solution": [
+      "Charging Stop from the Server command.",
+      "Stop command comes from the server then this error will display in the logs."
+    ]
+  },
+  {
+    "Error_Code": "303",
+    "Tittle": "Server De-authorised",
+    "Description": "Server de-authorised",
+    "Solution": [
+      "When charging cycle is not authorized from the server then this error comes."
+    ]
+  },
+  {
+    "Error_Code": "304",
+    "Tittle": "Power Loss",
+    "Description": "Rebooted while charging / Mains fail while charging",
+    "Solution": [
+      "When power loss during charging cycle then this error will come."
+    ]
+  },
+  {
+    "Error_Code": "305",
+    "Tittle": "Emergency Stop",
+    "Description": "Charging Stopped due to emergency switch pressed",
+    "Solution": [
+      "When charging stop by pressing emergency switch or in ideal conditions if someone presses the emergency switch."
+    ]
+  },
+  {
+    "Error_Code": "306",
+    "Tittle": "EV Disconnected",
+    "Description": "Charging stopped due to EV being disconnected during the charging cycle",
+    "Solution": [
+      "When charging stops due to EV being disconnected from the charger."
+    ]
+  },
+  {
+    "Error_Code": "307",
+    "Tittle": "SLAC Error or High Attenuation",
+    "Description": "Charging error caused by high noise in SLAC sequence or a simple SLAC error",
+    "Solution": [
+      "High earth noise is detected in CP and PE from the earth.",
+      "If simple noise is detected under ideal conditions, replace the PLC and check."
+    ]
+  },
+  {
+    "Error_Code": "308",
+    "Tittle": "Authentication Failure",
+    "Description": "Charging fails due to authentication issues",
+    "Solution": [
+      "We have observed that most of the time, this is caused by car-side connection issues, so please switch to another EV.",
+      "The gun attaches, but no charging start order is sent for an extended period of time. If this error occurs, remove the gun, reconnect, and check.",
+      "Due to a CMS issue, the charger did not get any authentication to begin charging, resulting in this error.",
+      "Gun does not connect properly, please reconnect and check."
+    ]
+  },
+  {
+    "Error_Code": "309",
+    "Tittle": "Cable Check Failure",
+    "Description": "Charging fails because of cable failure or insulation failure",
+    "Solution": [
+      "Check cable for failure or insulation issues."
+    ]
+  },
+  {
+    "Error_Code": "310",
+    "Tittle": "Pre-Charge Failure",
+    "Description": "Charging fails due to pre-charge failure",
+    "Solution": [
+      "If no pre-charge voltage is generated during the pre-charge mode.",
+      "Check to determine if the power module turns on during charging after authentication.",
+      "Replace the PLC and check.",
+      "If the problem remains after replacing the PLC, contact the technical team."
+    ]
+  },
+  {
+    "Error_Code": "201",
+    "Tittle": "EV Request Stop",
+    "Description": "When 100% SoC (State of Charge) is reached, EV requests stop",
+    "Solution": [
+      "When the vehicle reaches 100% charge, the EV requested stop (ER201) is displayed."
+    ]
+  },
+  {
+    "Error_Code": "202",
+    "Tittle": "Error from EV",
+    "Description": "Error while charging (EV termination)",
+    "Solution": [
+      "After providing the Charging Start instruction, if there is a communication issue between the EV and the charger, this error (ER203) is displayed."
+    ]
+  },
+  {
+    "Error_Code": "203",
+    "Tittle": "Communication with EV Failure",
+    "Description": "Error during communication begin",
+    "Solution": [
+      "Error during communication with the EV."
+    ]
+  }
+]

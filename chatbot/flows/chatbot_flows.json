@@ -1,0 +1,338 @@
+{
+  "flows": {
+    "start": {
+      "text": "Welcome to EV Charging Station Technical Support! I can help you diagnose errors, troubleshoot issues, and provide technical guidance. How can I assist you today?",
+      "options": [
+        "Report Error Code",
+        "Wallet Related Issues",
+        "Maintenance Guide",
+        "Contact Support"
+      ],
+      "steps": null,
+      "action": null
+    },
+    "error_reporting": {
+      "text": "Select the error code displayed on your charging station, or type it below:",
+      "options": [
+        "ER001 - Gun Temperature",
+        "ER005 - High NE Voltage",
+        "ER006 - Mains Low",
+        "ER007 - Mains High",
+        "ER008 - RFID Comm Fail",
+        "ER009 - Energy Meter Fail",
+        "ER010 - High Leakage",
+        "ER011 - System Temp High",
+        "ER015 - Emergency Stop",
+        "Other Error Code",
+        "Back to Menu"
+      ],
+      "steps": null,
+      "action": null
+    },
+    "other_error_code": {
+      "text": "Please type the error code displayed on your charging station (e.g., ER001, ER015, 301, or describe the issue like 'gun temperature high').",
+      "options": [
+        "Back to Menu"
+      ],
+      "steps": null,
+      "action": null
+    },
+    "wallet_issues": {
+      "text": "I can help you with wallet and payment related issues. What problem are you facing?",
+      "options": [
+        "Balance Not Updating",
+        "Payment Failed",
+        "Refund Issues",
+        "Transaction History",
+        "Back to Menu"
+      ],
+      "steps": null,
+      "action": null
+    },
+    "payment_failed": {
+      "text": "I understand your payment failed. Let me help you resolve this:",
+      "options": [
+        "✅ Yes, issue resolved",
+        "❌ No, still having issues",
+        "Back to Menu"
+      ],
+      "steps": [
+        "Common reasons for payment failure:",
+        "1. Insufficient wallet balance - Please recharge your wallet",
+        "2. Payment gateway timeout - Try again after a few minutes",
+        "3. Card declined - Check with your bank",
+        "4. Network connectivity issues - Ensure stable internet connection",
+        "5. Session expired - Start a new charging session",
+        "",
+        "💡 Solution:",
+        "• Check your wallet balance in the app",
+        "• Verify your payment method is active",
+        "• Clear app cache and try again",
+        "• Contact support if issue persists: +91-7878007018"
+      ],
+      "action": null
+    },
+    "balance_not_updating": {
+      "text": "Having trouble with wallet balance not updating? Here's what you can do:",
+      "options": [
+        "✅ Yes, issue resolved",
+        "❌ No, still having issues",
+        "Back to Menu"
+      ],
+      "steps": [
+        "Troubleshooting steps:",
+        "1. Pull down to refresh the wallet screen in your app",
+        "2. Log out and log back in to sync your balance",
+        "3. Check if the payment was actually deducted from your bank",
+        "4. Wait 5-10 minutes for the transaction to reflect",
+        "5. Ensure you have a stable internet connection",
+        "",
+        "⏱️ Note: Balance updates may take up to 10 minutes",
+        "",
+        "If balance still doesn't update after 10 minutes:",
+        "📧 Email: support@ecoplug.in with transaction details",
+        "📞 Call: +91-7878007018"
+      ],
+      "action": null
+    },
+    "refund_issues": {
+      "text": "Need help with refunds? Here's the refund process:",
+      "options": [
+        "✅ Yes, this helped",
+        "❌ No, still have questions",
+        "Back to Menu"
+      ],
+      "steps": [
+        "Refund Policy:",
+        "1. Refunds are processed within 5-7 business days",
+        "2. Amount will be credited to your original payment method",
+        "3. Wallet refunds are instant (within 24 hours)",
+        "",
+        "To request a refund:",
+        "• Go to Transaction History in the app",
+        "• Select the transaction",
+        "• Tap 'Request Refund'",
+        "• Provide reason and submit",
+        "",
+        "For urgent refund queries:",
+        "📧 Email: support@ecoplug.in (Include transaction ID)",
+        "📞 Call: +91-7878007018",
+        "",
+        "💡 Tip: Keep your transaction ID handy"
+      ],
+      "action": null
+    },
+    "transaction_history": {
+      "text": "To view your transaction history:",
+      "options": [
+        "✅ Yes, this helped",
+        "❌ No, still need help",
+        "Back to Menu"
+      ],
+      "steps": [
+        "Accessing Transaction History:",
+        "1. Open the EV Charging app",
+        "2. Go to 'Wallet' or 'My Account' section",
+        "3. Tap on 'Transaction History'",
+        "4. View all your past transactions",
+        "",
+        "What you can see:",
+        "• Charging session details",
+        "• Payment amounts and dates",
+        "• Transaction status (Success/Failed/Pending)",
+        "• Invoice downloads",
+        "• Refund status",
+        "",
+        "💾 You can download invoices for any transaction",
+        "",
+        "Need help with a specific transaction?",
+        "📧 Email: support@ecoplug.in",
+        "📞 Call: +91-7878007018"
+      ],
+      "action": null
+    },
+    "troubleshooting": {
+      "text": "Let's troubleshoot your charging station. What issue are you experiencing?",
+      "options": [
+        "Charging Not Starting",
+        "Connection Issues",
+        "Display Problems",
+        "Physical Damage",
+        "Back to Menu"
+      ],
+      "steps": null,
+      "action": null
+    },
+    "maintenance": {
+      "text": "Here's a quick maintenance guide for EV charging stations:",
+      "options": [
+        "✅ Yes, this helped",
+        "❌ No, need more guidance",
+        "Back to Menu"
+      ],
+      "steps": [
+        "1. Inspect cables and connectors for physical damage monthly",
+        "2. Clean the charging gun and socket regularly",
+        "3. Check ventilation and ensure no obstructions",
+        "4. Verify LED indicators are functioning properly",
+        "5. Test emergency stop button functionality",
+        "6. Schedule professional inspection every 6 months"
+      ],
+      "action": null
+    },
+    "support": {
+      "text": "For additional support, please contact our technical team:",
+      "options": [
+        "Back to Menu"
+      ],
+      "steps": [
+        "📞 Technical Support: +91-7878007018",
+        "📧 Email: support@ecoplug.in",
+        "🕐 Hours: 24/7 Emergency Support"
+      ],
+      "action": "open_support_form"
+    },
+    "status_check": {
+      "text": "To check your charging station status:",
+      "options": null,
+      "steps": [
+        "1. Verify all LED indicators are green",
+        "2. Check the display for any error messages",
+        "3. Confirm network connectivity (if applicable)",
+        "4. Test RFID reader functionality",
+        "5. Ensure emergency stop is not engaged"
+      ],
+      "action": null
+    },
+    "installation_guide": {
+      "text": "Installation should be performed by certified electricians. Here's an overview:",
+      "options": null,
+      "steps": [
+        "1. Verify electrical supply meets specifications",
+        "2. Install proper circuit protection (MCB/RCD)",
+        "3. Ensure proper earthing/grounding",
+        "4. Mount unit at appropriate height",
+        "5. Configure network settings if applicable",
+        "6. Perform commissioning tests",
+        "7. Register unit with backend system"
+      ],
+      "action": null
+    },
+    "network_help": {
+      "text": "For network and OCPP communication issues:",
+      "options": null,
+      "steps": [
+        "1. Check Ethernet/WiFi connection status",
+        "2. Verify network credentials are correct",
+        "3. Ensure firewall allows OCPP ports (typically 80/443)",
+        "4. Check backend server URL configuration",
+        "5. Review communication logs for errors",
+        "6. Test with ping/traceroute to backend server"
+      ],
+      "action": null
+    },
+    "payment_info": {
+      "text": "For billing and payment questions:",
+      "options": null,
+      "steps": [
+        "Payment is typically handled through:",
+        "• RFID cards (pre-authorized)",
+        "• Mobile apps (real-time charging)",
+        "• Credit/debit cards (on-site readers)",
+        "• Backend billing system integration",
+        "",
+        "For specific pricing, check your operator's app or website."
+      ],
+      "action": null
+    },
+    "user_guide": {
+      "text": "Basic operating instructions:",
+      "options": null,
+      "steps": [
+        "1. Park vehicle near charging station",
+        "2. Authenticate using RFID card or mobile app",
+        "3. Wait for authorization confirmation",
+        "4. Connect charging cable to vehicle",
+        "5. Charging will start automatically",
+        "6. Monitor progress on display or app",
+        "7. After charging, tap card/app to stop",
+        "8. Unplug and return cable to holder"
+      ],
+      "action": null
+    },
+
+    "solution_resolved": {
+      "text": "Great! I'm glad the solution worked for you. 🎉 Is there anything else I can help you with?",
+      "options": [
+        "Report Another Error",
+        "Wallet Related Issues",
+        "Maintenance Guide",
+        "No, I'm all set"
+      ],
+      "steps": null,
+      "action": null
+    },
+    "solution_not_resolved": {
+      "text": "I understand the solution didn't resolve your issue. Let me escalate this to our technical team for expert assistance.",
+      "options": [
+        "Back to Menu"
+      ],
+      "steps": [
+        "🔧 Your issue has been escalated to a technician.",
+        "",
+        "Our technical team will assist you with:",
+        "• Advanced diagnostics",
+        "• Remote troubleshooting",
+        "• On-site support if needed",
+        "",
+        "📞 Technical Support: +91-7878007018",
+        "📧 Email: support@ecoplug.in",
+        "🕐 Response Time: Within 2 hours during business hours",
+        "",
+        "Please provide:",
+        "• Error code mentioned",
+        "• Charging station ID/Location",
+        "• Time when error occurred",
+        "• Any steps you've already tried",
+        "",
+        "💡 Tip: Take a photo of the error display - it helps our team diagnose faster!"
+      ],
+      "action": null
+    },
+    "done_chatting": {
+      "text": "Perfect! Thank you for using EV Charging Technical Support. Have a great day! ⚡",
+      "options": [
+        "Start"
+      ],
+      "steps": [
+        "Feel free to come back anytime you need assistance.",
+        "",
+        "Quick tips for future:",
+        "• Save our support number: +91-7878007018",
+        "• Check app regularly for maintenance alerts",
+        "• Report errors promptly for faster resolution",
+        "",
+        "Stay charged! 🔋"
+      ],
+      "action": null
+    },
+    "report_another_error": {
+      "text": "Sure! What's the error code displayed on your charging station?",
+      "options": [
+        "ER001 - Gun Temperature",
+        "ER005 - High NE Voltage",
+        "ER006 - Mains Low",
+        "ER007 - Mains High",
+        "ER008 - RFID Comm Fail",
+        "ER009 - Energy Meter Fail",
+        "ER010 - High Leakage",
+        "ER011 - System Temp High",
+        "ER015 - Emergency Stop",
+        "Other Error Code",
+        "Back to Menu"
+      ],
+      "steps": null,
+      "action": null
+    }
+  }
+}
