@@ -1,0 +1,56 @@
+services:
+  # Web Service (API)
+  - type: web
+    name: ecoplug-chatbot-api
+    runtime: python
+    plan: free  # Change to 'starter' or higher for production
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn chatbot.api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_NAME
+        value: EV Charging Diagnostic Chatbot
+      - key: APP_VERSION
+        value: 1.0.0
+      - key: DEBUG
+        value: false
+      - key: API_V1_PREFIX
+        value: /v1
+      - key: CORS_ORIGINS
+        value: '["*"]'
+      - key: LOG_LEVEL
+        value: INFO
+      - key: LOG_FORMAT
+        value: json
+      - key: SESSION_TIMEOUT_MINUTES
+        value: 30
+      - key: RATE_LIMIT_PER_MINUTE
+        value: 60
+      - key: ERROR_CODES_PATH
+        value: error_codes_complete.json
+      - key: FLOWS_PATH
+        value: chatbot/flows/chatbot_flows.json
+      # MongoDB Configuration (Update these with your MongoDB Atlas URL)
+      - key: MONGODB_URL
+        value: mongodb://localhost:27017  # REPLACE WITH YOUR MONGODB ATLAS URL
+      - key: MONGODB_DB_NAME
+        value: ev_chatbot_db
+      - key: MONGODB_MAX_CONNECTIONS
+        value: 10
+      - key: MONGODB_MIN_CONNECTIONS
+        value: 1
+      # Optional: OpenAI API Key (uncomment when ready)
+      # - key: OPENAI_API_KEY
+      #   sync: false  # This will be set via Render dashboard for security
+      # - key: OPENAI_MODEL
+      #   value: gpt-4
+      # - key: OPENAI_TEMPERATURE
+      #   value: 0.7
+      # - key: OPENAI_MAX_TOKENS
+      #   value: 500
+    healthCheckPath: /v1/health
+    autoDeploy: true  # Auto-deploy on git push
+
+# Optional: If you need a PostgreSQL database (not needed for this project)
+# databases:
+#   - name: ecoplug-db
+#     plan: free

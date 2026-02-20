@@ -39,6 +39,118 @@ Visit: http://localhost:8000/docs
 
 ## Production Deployment
 
+### 🎨 Render Deployment (Recommended)
+
+Render is the easiest way to deploy this chatbot with automatic HTTPS, free SSL, and continuous deployment.
+
+#### Method 1: Using render.yaml (Recommended)
+
+**Prerequisites:**
+- GitHub/GitLab account with your code pushed
+- MongoDB Atlas account (free tier available)
+
+**Steps:**
+
+1. **Setup MongoDB Atlas (if not already done)**
+   ```
+   - Go to https://www.mongodb.com/cloud/atlas
+   - Create free cluster
+   - Create database user
+   - Whitelist all IPs (0.0.0.0/0) under Network Access
+   - Get connection string (looks like: mongodb+srv://user:pass@cluster.mongodb.net/)
+   ```
+
+2. **Update render.yaml**
+   - Open `render.yaml` in your project
+   - Replace the `MONGODB_URL` value with your MongoDB Atlas connection string
+   
+3. **Deploy to Render**
+   ```
+   - Go to https://dashboard.render.com
+   - Click "New +" → "Blueprint"
+   - Connect your GitHub/GitLab repository
+   - Render will auto-detect render.yaml
+   - Click "Apply"
+   - Wait for deployment (3-5 minutes)
+   ```
+
+4. **Your API is live!**
+   ```
+   - Access at: https://ecoplug-chatbot-api.onrender.com
+   - API docs: https://ecoplug-chatbot-api.onrender.com/docs
+   - Health check: https://ecoplug-chatbot-api.onrender.com/v1/health
+   ```
+
+#### Method 2: Manual Setup (Alternative)
+
+**Steps:**
+
+1. **Create Web Service**
+   ```
+   - Go to Render Dashboard
+   - Click "New +" → "Web Service"
+   - Connect your repository
+   - Configure:
+     * Name: ecoplug-chatbot-api
+     * Runtime: Python 3
+     * Build Command: pip install -r requirements.txt
+     * Start Command: uvicorn chatbot.api.main:app --host 0.0.0.0 --port $PORT
+   ```
+
+2. **Add Environment Variables**
+   ```
+   In Render Dashboard → Environment tab, add:
+   
+   MONGODB_URL=mongodb+srv://user:pass@cluster.mongodb.net/ev_chatbot_db
+   APP_NAME=EV Charging Diagnostic Chatbot
+   DEBUG=false
+   LOG_LEVEL=INFO
+   ERROR_CODES_PATH=error_codes_complete.json
+   FLOWS_PATH=chatbot/flows/chatbot_flows.json
+   ```
+
+3. **Deploy**
+   ```
+   - Click "Create Web Service"
+   - Render will build and deploy automatically
+   - Monitor logs in real-time
+   ```
+
+#### Post-Deployment
+
+**Test Your API:**
+```bash
+# Health check
+curl https://your-app.onrender.com/v1/health
+
+# Start chat session
+curl -X POST https://your-app.onrender.com/v1/chat/sessions \
+  -H "Content-Type: application/json" \
+  -d '{"metadata": {"platform": "web"}}'
+
+# Send message
+curl -X POST https://your-app.onrender.com/v1/chat/sessions/SESSION_ID/messages \
+  -H "Content-Type: application/json" \
+  -d '{"message": "Hello"}'
+```
+
+**Update CORS (if needed):**
+- If you have a frontend, update `CORS_ORIGINS` in environment variables
+- Example: `CORS_ORIGINS=["https://myapp.com","https://www.myapp.com"]`
+
+**Monitor Your App:**
+- View logs: Render Dashboard → Logs tab
+- Metrics: Dashboard shows CPU, Memory usage
+- Auto-deploy: Enabled by default on git push
+
+**Free Tier Notes:**
+- ✅ Free tier includes 750 hours/month
+- ⚠️ Services spin down after 15 min of inactivity
+- ⚠️ First request after sleep takes ~30 seconds
+- 💡 Upgrade to paid plan ($7/mo) for always-on service
+
+---
+
 ### Docker Deployment
 
 **1. Create Dockerfile**
