@@ -31,7 +31,7 @@ services:
         value: chatbot/flows/chatbot_flows.json
       # MongoDB Configuration (Update these with your MongoDB Atlas URL)
       - key: MONGODB_URL
-        value: mongodb://localhost:27017  # REPLACE WITH YOUR MONGODB ATLAS URL
+        value: mongodb+srv://dsaini999999_db_user:d68rtfShfnAAlnFx@cluster0.summg5u.mongodb.net/ev_chatbot_db?appName=Cluster0
       - key: MONGODB_DB_NAME
         value: ev_chatbot_db
       - key: MONGODB_MAX_CONNECTIONS
