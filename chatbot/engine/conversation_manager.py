@@ -495,4 +495,16 @@ class ConversationManager:
             
         Returns:
             The same ChatResponse after saving to history
-        \"\"\"\n        # Extract text content from response\n        assistant_message = response.text or \"\"\n        \n        # Save to conversation history\n        await self.session_service.add_message_to_history(\n            user_id=user_id,\n            session_id=session_id,\n            role=\"assistant\",\n            content=assistant_message\n        )\n        \n        return response
+        """
+        # Extract text content from response
+        assistant_message = response.text or ""
+        
+        # Save to conversation history
+        await self.session_service.add_message_to_history(
+            user_id=user_id,
+            session_id=session_id,
+            role="assistant",
+            content=assistant_message
+        )
+        
+        return response
