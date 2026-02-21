@@ -247,13 +247,13 @@
       "options": null,
       "steps": [
         "1. Park vehicle near charging station",
-        "2. Authenticate using RFID card or mobile app",
-        "3. Wait for authorization confirmation",
-        "4. Connect charging cable to vehicle",
-        "5. Charging will start automatically",
+        "2. Connect charging cable to vehicle ",
+        "3. Wait for authorization confirmation through display on app is gun is connected properly",
+        "4. Authenticate using RFID card or mobile app",
+        "5. Charging will start automatically or also manually after confirmation on display/app",
         "6. Monitor progress on display or app",
         "7. After charging, tap card/app to stop",
-        "8. Unplug and return cable to holder"
+        "8. Unplug and return connector to holder"
       ],
       "action": null
     },
