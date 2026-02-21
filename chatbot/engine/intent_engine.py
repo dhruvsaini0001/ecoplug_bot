@@ -29,14 +29,14 @@ class IntentEngine:
             "greeting": ["hello", "hi", "hey", "good morning", "good afternoon", "greetings"],
             "error_report": ["error", "fault", "problem", "issue", "showing", "displaying"],
             "troubleshoot": ["troubleshoot", "diagnose", "fix", "solve", "repair"],
-            "wallet": ["wallet", "balance", "refund", "transaction", "payment failed", "money", "recharge"],
+            "wallet": ["wallet", "balance", "refund", "transaction", "payment failed", "money", "recharge", "wallet charge", "add money"],
             "maintenance": ["maintenance", "service", "inspection", "check"],
             "support": ["help", "support", "assistance", "contact"],
             "status": ["status", "working", "operational", "running"],
             "installation": ["install", "setup", "configure", "connect"],
             "network": ["network", "wifi", "connection", "internet", "ocpp", "communication"],
-            "payment": ["payment", "billing", "charge", "cost", "price"],
-            "usage": ["how to", "guide", "instructions", "manual"],
+            "payment": ["payment", "billing", "cost", "price", "pay"],
+            "usage": ["how to charge", "charge car", "charge vehicle", "start charging", "charging guide", "how to", "guide", "instructions", "manual", "how to use"],
         }
     
     async def detect_intent(self, text: str) -> Optional[str]:

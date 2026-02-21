@@ -9,6 +9,7 @@ Production-ready headless chatbot backend with:
 - In-memory session management (MongoDB optional)
 - Async-first design
 """
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
@@ -24,13 +25,14 @@ from ..services.session_service import SessionService
 from ..services.ai_service import AIService
 from .routes_v1 import router as chat_router, set_conversation_manager
 from motor.motor_asyncio import AsyncIOMotorClient
+from typing import Optional
 
 logger = setup_logger(__name__)
 settings = get_settings()
 
 # Global instances (initialized during startup)
-conversation_manager: ConversationManager = None
-mongo_client: AsyncIOMotorClient = None
+conversation_manager: Optional[ConversationManager] = None
+mongo_client: Optional[AsyncIOMotorClient] = None
 
 
 @asynccontextmanager
