@@ -20,14 +20,17 @@ from ..engine.intent_engine import IntentEngine
 from ..engine.diagnostic_engine import DiagnosticEngine
 from ..engine.conversation_manager import ConversationManager
 from ..services.session_service_inmemory import InMemorySessionService
+from ..services.session_service import SessionService
 from ..services.ai_service import AIService
 from .routes_v1 import router as chat_router, set_conversation_manager
+from motor.motor_asyncio import AsyncIOMotorClient
 
 logger = setup_logger(__name__)
 settings = get_settings()
 
 # Global instances (initialized during startup)
 conversation_manager: ConversationManager = None
+mongo_client: AsyncIOMotorClient = None
 
 
 @asynccontextmanager
@@ -44,16 +47,24 @@ async def lifespan(app: FastAPI):
     # ═══════════════════════════════════════════════════════════════
     logger.info(f"Starting {settings.APP_NAME} v{settings.APP_VERSION}")
     
-    global conversation_manager
+    global conversation_manager, mongo_client
     
     try:
         # ──────────────────────────────────────────────────────────
-        # 1. Initialize Services (In-Memory Mode)
+        # 1. Initialize Services (MongoDB or In-Memory)
         # ──────────────────────────────────────────────────────────
-        logger.info("Using in-memory session storage (no MongoDB required)")
-        session_service = InMemorySessionService()
-        await session_service.create_indexes()
-        logger.info("✓ Session service initialized")
+        if settings.MONGODB_URL:
+            logger.info("Connecting to MongoDB...")
+            mongo_client = AsyncIOMotorClient(settings.MONGODB_URL)
+            db = mongo_client[settings.MONGODB_DB_NAME]
+            session_service = SessionService(db)
+            await session_service.create_indexes()
+            logger.info("✓ MongoDB session service initialized")
+        else:
+            logger.info("Using in-memory session storage (no MongoDB required)")
+            session_service = InMemorySessionService()
+            await session_service.create_indexes()
+            logger.info("✓ In-memory session service initialized")
         
         ai_service = AIService()
         logger.info("AI service initialized")
@@ -109,6 +120,9 @@ async def lifespan(app: FastAPI):
     # SHUTDOWN
     # ═══════════════════════════════════════════════════════════════
     logger.info("Shutting down application...")
+    if mongo_client:
+        mongo_client.close()
+        logger.info("✓ MongoDB connection closed")
     logger.info("Shutdown complete")
 
 
