@@ -60,14 +60,11 @@
         "Common reasons for payment failure:",
         "1. Insufficient wallet balance - Please recharge your wallet",
         "2. Payment gateway timeout - Try again after a few minutes",
-        "3. Card declined - Check with your bank",
-        "4. Network connectivity issues - Ensure stable internet connection",
-        "5. Session expired - Start a new charging session",
+        "3. Network connectivity issues - Ensure stable internet connection",
+        "4. Session expired - Start a new charging session",
         "",
         "💡 Solution:",
         "• Check your wallet balance in the app",
-        "• Verify your payment method is active",
-        "• Clear app cache and try again",
         "• Contact support if issue persists: +91-7878007018"
       ],
       "action": null
@@ -82,7 +79,7 @@
       "steps": [
         "Troubleshooting steps:",
         "1. Pull down to refresh the wallet screen in your app",
-        "2. Log out and log back in to sync your balance",
+        "2. Close and reopen the app to trigger a balance refresh",
         "3. Check if the payment was actually deducted from your bank",
         "4. Wait 5-10 minutes for the transaction to reflect",
         "5. Ensure you have a stable internet connection",
@@ -132,8 +129,8 @@
       "steps": [
         "Accessing Transaction History:",
         "1. Open the EV Charging app",
-        "2. Go to 'Wallet' or 'My Account' section",
-        "3. Tap on 'Transaction History'",
+        "2. Go to 'Wallet' or 'Charging History' section",
+        "3. Below the 'Transaction History' in Wallet section",
         "4. View all your past transactions",
         "",
         "What you can see:",
@@ -172,7 +169,7 @@
       ],
       "steps": [
         "1. Inspect cables and connectors for physical damage monthly",
-        "2. Clean the charging gun and socket regularly",
+        "2. Clean the charging gun and socket if its dirty or dusty",
         "3. Check ventilation and ensure no obstructions",
         "4. Verify LED indicators are functioning properly",
         "5. Test emergency stop button functionality",
