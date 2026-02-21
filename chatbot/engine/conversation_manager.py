@@ -111,6 +111,15 @@ class ConversationManager:
         session_id = session["session_id"]
         current_node = session.get("current_node", "start")
         
+        # Save user message to history
+        if message:
+            await self.session_service.add_message_to_history(
+                user_id=user_id,
+                session_id=session_id,
+                role="user",
+                content=message
+            )
+        
         # ═══════════════════════════════════════════════════════════════
         # STEP 0.5: DIRECT OPTION BUTTON MAPPING (HIGHEST PRIORITY)
         # ═══════════════════════════════════════════════════════════════
@@ -133,7 +142,7 @@ class ConversationManager:
                     current_node=option_node
                 )
                 
-                return response
+                return await self._save_and_return_response(user_id, session_id, response)
         
         # ═══════════════════════════════════════════════════════════════
         # STEP 1: ERROR CODE DETECTION (HIGH PRIORITY FOR FREE TEXT)
@@ -159,7 +168,7 @@ class ConversationManager:
                     current_node=current_node
                 )
                 
-                return response
+                return await self._save_and_return_response(user_id, session_id, response)
         
         # ═══════════════════════════════════════════════════════════════
         # STEP 1.5: PAYMENT/WALLET INTENT CHECK (BEFORE FREE TEXT INTENT)
@@ -180,7 +189,7 @@ class ConversationManager:
                     current_node="wallet_issues"
                 )
                 
-                return response
+                return await self._save_and_return_response(user_id, session_id, response)
         
         # ═══════════════════════════════════════════════════════════════
         # STEP 2: EXPLICIT ACTION
@@ -200,7 +209,7 @@ class ConversationManager:
                 current_node=action
             )
             
-            return response
+            return await self._save_and_return_response(user_id, session_id, response)
         
         # ═══════════════════════════════════════════════════════════════
         # STEP 3: INTENT DETECTION
@@ -225,7 +234,7 @@ class ConversationManager:
                     current_node=node_id
                 )
                 
-                return response
+                return await self._save_and_return_response(user_id, session_id, response)
         
         # ═══════════════════════════════════════════════════════════════
         # STEP 4: AI FALLBACK (LOWEST PRIORITY)
@@ -244,7 +253,7 @@ class ConversationManager:
             current_node=current_node
         )
         
-        return response
+        return await self._save_and_return_response(user_id, session_id, response)
     
     def _generate_diagnostic_response(
         self,
@@ -469,3 +478,21 @@ class ConversationManager:
                     return True
         
         return False
+    
+    async def _save_and_return_response(
+        self,
+        user_id: str,
+        session_id: str,
+        response: ChatResponse
+    ) -> ChatResponse:
+        """
+        Save assistant response to conversation history and return it.
+        
+        Args:
+            user_id: User identifier
+            session_id: Session identifier
+            response: ChatResponse to save and return
+            
+        Returns:
+            The same ChatResponse after saving to history
+        \"\"\"\n        # Extract text content from response\n        assistant_message = response.text or \"\"\n        \n        # Save to conversation history\n        await self.session_service.add_message_to_history(\n            user_id=user_id,\n            session_id=session_id,\n            role=\"assistant\",\n            content=assistant_message\n        )\n        \n        return response

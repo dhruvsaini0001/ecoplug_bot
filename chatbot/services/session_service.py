@@ -22,6 +22,10 @@ class SessionService:
         "session_id": "sess_abc123xyz",
         "current_node": "start",
         "platform": "web",
+        "conversation_history": [
+            {"role": "user", "content": "Hello", "timestamp": ISODate(...)},
+            {"role": "assistant", "content": "Hi! How can I help?", "timestamp": ISODate(...)}
+        ],
         "created_at": ISODate("2026-02-19T10:00:00Z"),
         "updated_at": ISODate("2026-02-19T10:05:00Z")
     }
@@ -116,6 +120,7 @@ class SessionService:
             "session_id": generate_session_id(),
             "current_node": "start",
             "platform": platform,
+            "conversation_history": [],
             "created_at": datetime.utcnow(),
             "updated_at": datetime.utcnow()
         }
@@ -137,7 +142,7 @@ class SessionService:
             user_id: User identifier
             session_id: Session identifier
             current_node: Current conversation node
-            **extra_data: Additional fields to update
+            **extra_data: Additional fields to update (conversation_history, etc.)
         """
         update_data = {
             "updated_at": datetime.utcnow()
@@ -158,6 +163,38 @@ class SessionService:
             f"Updated session: {session_id}",
             extra={"session_id": session_id}
         )
+    
+    async def add_message_to_history(
+        self,
+        user_id: str,
+        session_id: str,
+        role: str,
+        content: str
+    ) -> None:
+        """
+        Add a message to conversation history.
+        
+        Args:
+            user_id: User identifier  
+            session_id: Session identifier
+            role: Message role (user/assistant)
+            content: Message content
+        """
+        message = {
+            "role": role,
+            "content": content,
+            "timestamp": datetime.utcnow()
+        }
+        
+        await self.collection.update_one(
+            {"user_id": user_id, "session_id": session_id},
+            {
+                "$push": {"conversation_history": message},
+                "$set": {"updated_at": datetime.utcnow()}
+            }
+        )
+        
+        logger.debug(f"Added {role} message to session: {session_id}")
     
     async def get_session_by_id(self, session_id: str) -> Optional[Dict[str, Any]]:
         """
