@@ -54,12 +54,22 @@ async def lifespan(app: FastAPI):
         # 1. Initialize Services (MongoDB or In-Memory)
         # ──────────────────────────────────────────────────────────
         if settings.MONGODB_URL:
-            logger.info("Connecting to MongoDB...")
-            mongo_client = AsyncIOMotorClient(settings.MONGODB_URL)
-            db = mongo_client[settings.MONGODB_DB_NAME]
-            session_service = SessionService(db)
-            await session_service.create_indexes()
-            logger.info("✓ MongoDB session service initialized")
+            try:
+                logger.info("Connecting to MongoDB...")
+                mongo_client = AsyncIOMotorClient(settings.MONGODB_URL)
+                # Test connection with a ping
+                await mongo_client.admin.command('ping')
+                db = mongo_client[settings.MONGODB_DB_NAME]
+                session_service = SessionService(db)
+                await session_service.create_indexes()
+                logger.info("✓ MongoDB session service initialized")
+            except Exception as e:
+                logger.warning(f"MongoDB connection failed: {str(e)}")
+                logger.warning("Falling back to in-memory session storage")
+                mongo_client = None
+                session_service = InMemorySessionService()
+                await session_service.create_indexes()
+                logger.info("✓ In-memory session service initialized (MongoDB fallback)")
         else:
             logger.info("Using in-memory session storage (no MongoDB required)")
             session_service = InMemorySessionService()
