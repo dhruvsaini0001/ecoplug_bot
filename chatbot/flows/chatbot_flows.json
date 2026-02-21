@@ -293,18 +293,19 @@
         "• Error code mentioned",
         "• Charging station ID/Location",
         "• Time when error occurred",
-        "• Any steps you've already tried",
-        "",
-        "💡 Tip: Take a photo of the error display - it helps our team diagnose faster!"
+        "• Any steps you've already tried"
       ],
       "action": null
     },
     "done_chatting": {
-      "text": "Perfect! Thank you for using EV Charging Technical Support. Have a great day! ⚡",
+      "text": "Thank you for chatting with us! 🙏 We hope we could help you today.",
       "options": [
         "Start"
       ],
       "steps": [
+        "📝 We'd love to hear your feedback!",
+        "Help us improve: https://forms.gle/ecoplug-feedback",
+        "",
         "Feel free to come back anytime you need assistance.",
         "",
         "Quick tips for future:",
@@ -312,7 +313,9 @@
         "• Check app regularly for maintenance alerts",
         "• Report errors promptly for faster resolution",
         "",
-        "Stay charged! 🔋"
+        "Stay charged! 🔋⚡",
+        "",
+        "Have a great day!"
       ],
       "action": null
     },

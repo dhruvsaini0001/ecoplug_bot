@@ -370,6 +370,7 @@ class ConversationManager:
         
         # Direct mappings for main menu options
         option_mapping = {
+            "start": "start",
             "report error code": "error_reporting",
             "wallet related issues": "wallet_issues",
             "troubleshoot issue": "troubleshooting",
@@ -404,7 +405,10 @@ class ConversationManager:
             "no": "solution_not_resolved",
             "no, i'm all set": "done_chatting",
             "no i'm all set": "done_chatting",
+            "no, im all set": "done_chatting",
+            "no im all set": "done_chatting",
             "i'm all set": "done_chatting",
+            "im all set": "done_chatting",
             "all set": "done_chatting",
             "report another error": "report_another_error",
         }
